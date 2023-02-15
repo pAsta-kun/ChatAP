@@ -1,3 +1,4 @@
+/* Stuff for the entire page */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 :root{
     --white: #f7f7f7;
@@ -8,13 +9,19 @@
     --gray: #4c5b5c;
     --purple: #6d5af1;
 }
+
+
 body{
     width: 100vw;
     height: 100vh;
     font-family: "Poppins", sans-serif;
     background: var(--black);
     margin: 0rem;
+    overflow: hidden;
+    color: var(--white);
 }
+
+/* Header stuff */
 .green{
     color: var(--green);
     font-weight:1000;
@@ -24,4 +31,22 @@ header{
     font-size: 4rem;
     display: flex;
     justify-content: center;
+}
+
+
+/* Test */
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.inputs{
+    width: 90%;
+    height: 5%;
+    margin-bottom: 5%;
+}
+input{
+    width: 100%;
+    height: 100%;
 }
