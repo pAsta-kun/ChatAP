@@ -5,12 +5,23 @@ async function query(data) {
 			headers: { Authorization: "Bearer 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" },
 			method: "POST",
 			body: JSON.stringify(data),
+			temperature: 100
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-	console.log(JSON.stringify(response));
-});
+query({inputs:"I'm going to tell you what your job is. You're a chat bot that's called ChatAP, you're job is to help students with their questions about AP Classes."})
+	.then((response) => {
+		console.log(JSON.stringify(response));
+		return query({"inputs": "What composite score do I need to get a 5 on AP Physics C Mechanics?"});
+	})
+	.then((response) => {
+		console.log(JSON.stringify(response));
+		return query({"inputs": "How many AP Classes are there?"});
+	})
+	.then((response) => {
+		console.log(JSON.stringify(response));
+	});
+
