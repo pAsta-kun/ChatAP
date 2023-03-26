@@ -39,14 +39,14 @@ header{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 .inputs{
     width: 90%;
     height: 5%;
     margin-bottom: 5%;
-    margin-top: 2%;
+    margin-top: 1%;
     
 }
 input{
@@ -64,7 +64,7 @@ input{
 }
 .textArea{
     width: 95%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -77,11 +77,16 @@ input{
     border-radius: 15px;
     border-bottom-right-radius: 0px;
     background-color: var(--white);
+    color: var(--black);
+    padding-left: 1%;
+    display: flex;
+    align-items: center;
 }
 .aiBubble{
     border-radius: 15px;
     border-bottom-left-radius: 0px;
     background-color: var(--green);
+    color: var(--white);
 }
 .userArea, .aiArea{
     padding-block: .5%;
