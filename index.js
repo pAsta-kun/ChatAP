@@ -1,6 +1,6 @@
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/bigscience/bloom",
+		"https://api-inference.huggingface.co/models/bigscience/bloomz",
 		{
 			headers: { Authorization: "Bearer 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" },
 			method: "POST",
@@ -18,6 +18,8 @@ query({"inputs": "Can you please let us know more details about your "}).then((r
 //stuff to do with text bubbles ig
 let newUserArea;
 let newUserBubble;
+let newAiArea;
+let newAiBubble
 let aiResponse; 
 
 //actrion listener for if user inputted stuff
@@ -27,23 +29,42 @@ document.querySelector('#text').addEventListener('keypress', function (e) {
 		userEnter(document.getElementById('text').value);
 		gift()
 	}
+
 })
 //Creates new user text bubble
 function userEnter(text)
 {
-	//Creating new user text bubble
-	newUserArea = document.createElement('div');
-	newUserBubble = document.createElement('div');
-	newUserArea.classList.add('userArea');
-	newUserBubble.classList.add('userBubble', 'textBubble');
-	newUserArea.appendChild(newUserBubble);
-	//setting text of user textbubble
-	newUserBubble.innerHTML = text;
-	document.getElementsByClassName('textArea')[0].appendChild(newUserArea)
-	//Reseting textbox
-	document.getElementById('text').value = null;
+	if((document.getElementById('text').value).charAt(0) != ' ')
+	{
+		if(document.getElementById('text').value != '')
+		{
+			//Creating new user text bubble
+			newUserArea = document.createElement('div');
+			newUserBubble = document.createElement('div');
+			newUserArea.classList.add('userArea');
+			newUserBubble.classList.add('userBubble', 'textBubble');
+			newUserArea.appendChild(newUserBubble);
+			//setting text of user textbubble
+			newUserBubble.innerHTML = text;
+			document.getElementsByClassName('textArea')[0].appendChild(newUserArea)
+			//Reseting textbox
+			document.getElementById('text').value = null;
 
-	query(text);
+			//Creating new user text bubble
+			newAiArea = document.createElement('div');
+			newAiBubble = document.createElement('div');
+			newAiArea.classList.add('aiArea');
+			newAiBubble.classList.add('aiBubble', 'textBubble');
+			newAiArea.appendChild(newAiBubble);
+			//setting text of user textbubble
+			newUserBubble.innerHTML = text;
+			document.getElementsByClassName('textArea')[0].appendChild(newAiArea)
+
+			//query(text);
+		}
+		
+	}
+
 	
 }
 function gift()
