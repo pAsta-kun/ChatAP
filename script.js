@@ -1,26 +1,19 @@
 import { config } from "dotenv"
 config()
 
-//getting stuff from openAI
 import { Configuration, OpenAIApi } from "openai"
 import readline from "readline"
 
-//Setting up AI by passing ap key
 const openAi = new OpenAIApi(
   new Configuration({
     apiKey: process.env.API_KEY,
   })
 )
 
-const userInterface = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
-
-//prompts user for input
-userInterface.prompt()
-//when input given send to chatGPT
-userInterface.on("line", async input => {
+//function to recive input from user
+async function query(input)
+{
+  //Gets info from API
   const response = await openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
@@ -29,7 +22,9 @@ userInterface.on("line", async input => {
       { role: "user", content: input}
     ],
   })
-  //gives us chatGPT's response
-  console.log(response.data.choices[0].message.content)
-  userInterface.prompt()
-})
+
+  return response.data.choices[0].message.content;
+  console.log(response.data.choices[0].message.content) ;
+}
+
+query("Hello");
