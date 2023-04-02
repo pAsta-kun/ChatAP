@@ -7,7 +7,7 @@ import { Configuration, OpenAIApi } from "openai"
 
 const openAi = new OpenAIApi(
   new Configuration({
-    apiKey: `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`,
+    apiKey: ``,
   })
 )
 
